@@ -1,0 +1,31 @@
+#sidebar {
+  min-width: 350px;
+  max-width: 350px;
+  transition: all 0.3s;
+}
+#sidebar.active {
+  margin-left: -350px;
+}
+#content {
+  width: 100%;
+  transition: all 0.3s;
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+.content-section {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.btn-toggle {
+  border: none; /* 移除边框 */
+  background: none; /* 移除背景颜色 */
+  padding: 0.5rem 1rem; /* 设置内边距 */
+  font-size: 1rem; /* 字体大小，如果需要图标大一些可以调整 */
+  line-height: 1; /* 行高，确定图标的垂直对齐 */
+  color: #333; /* 图标颜色 */
+  margin: 8px; /* 四周的边距都设置为10px */
+}

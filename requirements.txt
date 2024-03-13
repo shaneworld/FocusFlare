@@ -1,1 +1,10 @@
 flask
+flask-sqlalchemy
+flask-wtf
+flask-mail
+flask-migrate
+flask-login
+flask-bcrypt
+werkzeug
+itsdangerous
+email_validator
