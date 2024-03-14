@@ -33,43 +33,23 @@
                     <div class="form-outline mb-4">
                       <div>{{form.email(class="form-control form-control-lg")}}</div>
                       <div>{{form.email.label(class="form-label")}}
-
-                      {% if form.email.errors %}
-                        {% for error in form.email.errors %}
-                          <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                          </div>
-                        {% endfor %}
-                      {% endif %}
-
+                      {% for error in form.email.errors %}
+                      <br><span style="color: red; font-style: italic;">{{ error }}</span>
+                      {% endfor %}
                     </div>
+
 
                     <div class="form-outline mb-4">
                       <div>{{form.password(class="form-control form-control-lg")}}</div>
                       <div>{{form.password.label(class="form-label")}}
-
-                      {% if form.password.errors %}
-                        {% for error in form.password.errors %}
-                          <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                          </div>
-                        {% endfor %}
-                      {% endif %}
-
                     </div>
 
                     <div class="form-outline mb-4">
                       <div>{{form.confirm(class="form-control form-control-lg")}}</div>
                       <div>{{form.confirm.label(class="form-label")}}
-
-                      {% if form.confirm.errors %}
-                        {% for error in form.confirm.errors %}
-                          <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                          </div>
-                        {% endfor %}
-                      {% endif %}
-
+                      {% for error in form.confirm.errors %}
+                      <br><span style="color: red; font-style: italic;">{{ error }}</span>
+                      {% endfor %}
                     </div>
 
                     <div class="pt-1 mb-4">

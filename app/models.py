@@ -19,7 +19,7 @@ class User(UserMixin, db.Model):
         self, email, password, is_admin=False, is_confirmed=False, confirmed_on=None
     ):
         self.email = email
-        self.password = generate_password_hash(password)
+        self.password = password
         self.created_on = datetime.now()
         self.is_admin = is_admin
         self.is_confirmed = is_confirmed
