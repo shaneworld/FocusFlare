@@ -8,44 +8,29 @@
 
 {% block main %}
 
-<div class="wrapper">
-  <!-- Sidebar  -->
-  <nav id="sidebar" class="bg-light sidebar">
-    <!-- Sidebar content here... -->
-  </nav>
 
-  <!-- Page Content  -->
-  <div id="content">
-    <!-- Sidebar toggle button-->
-    <button class="btn btn-outline-secondary btn-toggle" id="sidebarCollapse">
-        <!-- <span class="navbar-toggler-icon"></span> -->
-        <i class="fa-solid fa-bars"></i>
-    </button>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-lg-3 sidebar">
+        <!-- Sidebar content -->
+        <div class="position-sticky">
+          <p>任务</p>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">Inbox</a>
+            <!-- More sidebar items -->
+          </div>
+        </div>
+        <!-- Other sidebar sections -->
+      </div>
 
-    <div class="container-fluid">
-      <!-- Your content goes here -->
-      <div class="content-section">
-        <h2>Section 1</h2>
-        <p>This is the first content area</p>
-      </div>
-      <div class="content-section">
-        <h2>Section 2</h2>
-        <p>This is the second content area</p>
-      </div>
-      <div class="content-section">
-        <h2>Section 3</h2>
-        <p>This is the third content area</p>
+      <div class="col-md-8 col-lg-9 content">
+        <!-- Main content -->
+        <!-- Task items -->
+        <!-- Other content sections -->
       </div>
     </div>
   </div>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('sidebarCollapse').addEventListener('click', function () {
-          document.getElementById('sidebar').classList.toggle('active');
-          document.getElementById('content').classList.toggle('active');
-      });
-  });
-</script>
+
+  {% block left %}{% endblock %}
 
 {% endblock %}

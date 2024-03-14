@@ -1,31 +1,41 @@
-#sidebar {
-  min-width: 350px;
-  max-width: 350px;
-  transition: all 0.3s;
-}
-#sidebar.active {
-  margin-left: -350px;
-}
-#content {
-  width: 100%;
-  transition: all 0.3s;
-}
-.wrapper {
-  display: flex;
-  width: 100%;
-}
-.content-section {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
-  border-radius: 0.5rem;
-  padding: 16px;
-  margin-bottom: 16px;
+  color: #495057;
 }
-.btn-toggle {
-  border: none; /* 移除边框 */
-  background: none; /* 移除背景颜色 */
-  padding: 0.5rem 1rem; /* 设置内边距 */
-  font-size: 1rem; /* 字体大小，如果需要图标大一些可以调整 */
-  line-height: 1; /* 行高，确定图标的垂直对齐 */
-  color: #333; /* 图标颜色 */
-  margin: 8px; /* 四周的边距都设置为10px */
+
+.sidebar {
+  background: #ffffff;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  width: 250px; /* Sidebar width */
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.content {
+  margin-left: 250px; /* Same as sidebar width */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-hidden .sidebar {
+  transform: translateX(-100%);
+}
+
+.sidebar-hidden .content {
+  margin-left: 0;
+}
+
+.toggle-sidebar {
+  position: fixed;
+  top: 15px;
+  left: 250px; /* Same as sidebar width */
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-hidden .toggle-sidebar {
+  left: 0;
 }

@@ -28,6 +28,9 @@ app.register_blueprint(basic)
 from app.blueprints.auth import auth
 app.register_blueprint(auth)
 
+from app.blueprints.gtd import gtd
+app.register_blueprint(gtd)
+
 from app.models import User
 
 @login_manager.user_loader

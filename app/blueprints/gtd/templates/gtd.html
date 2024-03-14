@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block div %}
+
+  <!-- Page Content  -->
+  <div id="content">
+    <!-- Sidebar toggle button-->
+    <button class="btn btn-outline-secondary btn-toggle" id="sidebarCollapse">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="container-fluid">
+      <!-- Your content goes here -->
+      <div class="content-section">
+        <h2>Section 1</h2>
+        <p>This is the first content area</p>
+      </div>
+      <div class="content-section">
+        <h2>Section 2</h2>
+        <p>This is the second content area</p>
+      </div>
+      <div class="content-section">
+        <h2>Section 3</h2>
+        <p>This is the third content area</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
