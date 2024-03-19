@@ -4,38 +4,18 @@ body {
   color: #495057;
 }
 
-.sidebar {
-  background: #ffffff;
-  padding: 20px;
-  height: 100vh;
-  position: fixed;
-  width: 250px; /* Sidebar width */
-  left: 0;
-  transition: transform 0.3s ease;
+.editable-span {
+    margin-left: 10px;
 }
 
-.content {
-  margin-left: 250px; /* Same as sidebar width */
-  padding: 20px;
-  transition: margin-left 0.3s ease;
+.date-info {
+    display: block;
+    font-size: 0.8em;
+    color: grey;
+    margin-top: 5px;
 }
 
-.sidebar-hidden .sidebar {
-  transform: translateX(-100%);
-}
-
-.sidebar-hidden .content {
-  margin-left: 0;
-}
-
-.toggle-sidebar {
-  position: fixed;
-  top: 15px;
-  left: 250px; /* Same as sidebar width */
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-
-.sidebar-hidden .toggle-sidebar {
-  left: 0;
+/* 设置时间选择框的宽度为更合适的尺寸 */
+.time-select {
+    width: auto;
 }

@@ -2,29 +2,73 @@
 
 {% block div %}
 
-  <!-- Page Content  -->
-  <div id="content">
-    <!-- Sidebar toggle button-->
-    <button class="btn btn-outline-secondary btn-toggle" id="sidebarCollapse">
-        <!-- <span class="navbar-toggler-icon"></span> -->
-        <i class="fa-solid fa-bars"></i>
-    </button>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
+    添加任务
+</button>
 
-    <div class="container-fluid">
-      <!-- Your content goes here -->
-      <div class="content-section">
-        <h2>Section 1</h2>
-        <p>This is the first content area</p>
-      </div>
-      <div class="content-section">
-        <h2>Section 2</h2>
-        <p>This is the second content area</p>
-      </div>
-      <div class="content-section">
-        <h2>Section 3</h2>
-        <p>This is the third content area</p>
-      </div>
+<ul class="list-group" style="margin-top: 23px">
+  {% for task in tasks %}
+  <li class="list-group-item">
+    <form action="/update-task" method="post">
+      <input type="hidden" name="task_id" value="{{ task.id }}">
+      <input class="form-check-input me-1" type="checkbox" name="is_completed" onchange="this.form.submit()" {{ 'checked' if task.is_completed }}>
+      <label class="form-check-label" for="task-{{ task.id }}">
+        {{ task.name }}
+        <br>
+        <span class="badge text-bg-info">{{ task.label }}</span>
+      </label>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taskModalLabel">添加任务</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm" action="/save_task" method="POST">
+                    <div class="mb-3">
+                        <label for="taskName" class="form-label">任务</label>
+                        <input type="text" class="form-control" id="taskName" name="taskName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="startDateTime" class="form-label">开始时间</label>
+                        <input type="text" class="form-control" id="startDateTime" name="startDateTime">
+                    </div>
+                    <div class="mb-3">
+                        <label for="endDateTime" class="form-label">结束时间</label>
+                        <input type="text" class="form-control" id="endDateTime" name="endDateTime">
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskLabel" class="form-label">标签</label>
+                        <input type="text" class="form-control" id="taskLabel" name="taskLabel">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary" id="saveTaskButton">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<script>
+$(function () {
+    flatpickr("#startDateTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+    });
+
+    flatpickr("#endDateTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+    });
+});
+</script>
 
 {% endblock %}

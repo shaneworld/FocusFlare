@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 from config import Config
 
 # Create app
@@ -36,6 +36,12 @@ from app.models import User
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.filter(User.id == int(user_id)).first()
+
+@app.context_processor
+def inject_username():
+    if current_user.is_authenticated:
+        return {'username': current_user.username}
+    return {'username': None}
 
 
 ########################

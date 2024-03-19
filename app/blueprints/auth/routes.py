@@ -17,7 +17,7 @@ def register():
             return render_template("register.html", form=form)
         else:
             pw_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-            user = User(email=form.email.data, password=pw_hash)
+            user = User(username=form.username.data, email=form.email.data, password=pw_hash)
             db.session.add(user)
             db.session.commit()
 

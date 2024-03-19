@@ -31,13 +31,17 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">注册</h5>
 
                     <div class="form-outline mb-4">
+                      <div>{{form.username(class="form-control form-control-lg")}}</div>
+                      <div>{{form.username.label(class="form-label")}}
+                    </div>
+
+                    <div class="form-outline mb-4">
                       <div>{{form.email(class="form-control form-control-lg")}}</div>
                       <div>{{form.email.label(class="form-label")}}
                       {% for error in form.email.errors %}
                       <br><span style="color: red; font-style: italic;">{{ error }}</span>
                       {% endfor %}
                     </div>
-
 
                     <div class="form-outline mb-4">
                       <div>{{form.password(class="form-control form-control-lg")}}</div>

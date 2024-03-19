@@ -1,5 +1,6 @@
-venv
+.venv
 __pycache__
 flask_session
 pyrightconfig.json
 app.db
+migrations

@@ -2,35 +2,73 @@
 
 {% block title %}
 
-    homepage
+  FocusFlare
 
 {% endblock %}
 
 {% block main %}
 
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="font-weight: bold;" href="/gtd">FocusFlare</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </ul>
+          <li class="nav-item dropdown d-flex">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {% if username %}
+                  {{ username }}
+              {% else %}
+                  Guest
+              {% endif %}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">账号管理</a></li>
+              <li><a class="dropdown-item" href="#">历史记录</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">退出登录</a></li>
+            </ul>
+          </li>
+        </div>
+      </div>
+    </nav>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4 col-lg-3 sidebar">
-        <!-- Sidebar content -->
-        <div class="position-sticky">
-          <p>任务</p>
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">Inbox</a>
-            <!-- More sidebar items -->
+    <div style="padding-top: 10px;">
+      <div class="row">
+        <div class="col-md-3">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="搜索" aria-label="Search">
+            <button class="btn btn-outline-primary" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <br>
+          <div class="btn-group-vertical d-flex" role="group" aria-label="Vertical button group">
+            <a href="/gtd" type="button" class="btn btn-outline-primary d-flex justify-content-between align-items-center text-start {{'active' if active == 'gtd' else ''}}">
+              待办事项
+              <span class="badge bg-primary rounded-pill">14</span>
+            </a>
+            <a href="/save_task" type="button" class="btn btn-outline-primary d-flex justify-content-between align-items-center text-start {{'active' if active == 'habits' else ''}}">
+              习惯打卡
+              <span class="badge bg-primary rounded-pill">1</span>
+            </a>
+            <a href="#" type="button" class="btn btn-outline-primary text-start {{'active' if active == 'pomodoro' else ''}}">番茄时钟</a>
           </div>
         </div>
-        <!-- Other sidebar sections -->
-      </div>
-
-      <div class="col-md-8 col-lg-9 content">
-        <!-- Main content -->
-        <!-- Task items -->
-        <!-- Other content sections -->
+        <div class="col-md-9">
+          <div>
+            {% block div %}
+            {% endblock %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  {% block left %}{% endblock %}
+  </body>
 
 {% endblock %}
